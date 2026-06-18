@@ -1,7 +1,7 @@
 # CET138 — Full Stack Development ePortfolio
-Student: Alisha Chaudhary
-Assignment: 1
-Module: CET138 — Full Stack Development
+**Student: Alisha Chaudhary**
+**Assignment: 1**
+**Module: CET138 — Full Stack Development**
 
 ## 🔗 Live Website
 
@@ -88,4 +88,3 @@ Built with just 3 files. No installs, no build tools, open `index.html` and it r
  ┣ 📄 style.css      ← All custom styles and animations
  ┗ 📄 script.js      ← All JavaScript for every interactive feature
 ```
-
