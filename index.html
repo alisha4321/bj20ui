@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CET138 ePortfolio | Alisha Chaudhary</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Manrope:wght@400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="brand">dev<span>.</span>folio</a>
+  <ul>
+    <li><a href="#s1">Full Stack</a></li>
+    <li><a href="#s2">HTML</a></li>
+    <li><a href="#s3">CSS</a></li>
+    <li><a href="#s4">Bootstrap</a></li>
+    <li><a href="#s5">JavaScript</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="eyebrow">CET138 — Full Stack Development — Assignment 1</p>
+  <h1><span class="w1">FULL</span><br/><span class="w2">STACK</span><br/><span class="w3">PORTFOLIO</span></h1>
+  <p class="hero-sub">A complete showcase of web development skills — semantic HTML, expressive CSS, the Bootstrap framework, and interactive JavaScript.</p>
+  <a href="#s1" class="cta">Explore ePortfolio →</a>
+  <div class="pills">
+    <div class="pill p1"><div class="pill-n">01</div><div class="pill-t">Full Stack</div><div class="pill-d">Client, server &amp; database</div></div>
+    <div class="pill p2"><div class="pill-n">02</div><div class="pill-t">HTML</div><div class="pill-d">Semantic structure &amp; forms</div></div>
+    <div class="pill p3"><div class="pill-n">03</div><div class="pill-t">CSS</div><div class="pill-d">Layout, animation, responsive</div></div>
+    <div class="pill p4"><div class="pill-n">04</div><div class="pill-t">Bootstrap</div><div class="pill-d">Rapid component UI</div></div>
+    <div class="pill p5"><div class="pill-n">05</div><div class="pill-t">JavaScript</div><div class="pill-d">DOM, events, interactivity</div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- 01 FULL STACK -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="s1">
+  <div class="strip">01 — What is Full Stack Development?</div>
+  <div class="si">
+    <div class="eye">01 / Topic Overview</div>
+    <h2>WHAT IS <span>FULL STACK</span> DEVELOPMENT?</h2>
+
+    <p class="prose">Full Stack Development means building <strong>all three layers</strong> of a web application — the front-end users see, the back-end server that runs logic, and the database that stores data. A full-stack developer can work across every layer.</p>
+    <p class="prose"><strong style="color:var(--c1)">① Front-End (Client Side)</strong> — HTML, CSS and JavaScript running in the browser. This is everything the user sees and interacts with. Frameworks like Bootstrap and React speed up development.</p>
+    <p class="prose"><strong style="color:var(--c4)">② Back-End (Server Side)</strong> — Languages like Node.js, Python and PHP run on a remote server. They process requests, apply business logic, handle authentication, and talk to the database. The front-end never directly touches data — it asks the back-end via an <strong>API</strong>.</p>
+    <p class="prose"><strong style="color:var(--c3)">③ Database (Data Layer)</strong> — Where all persistent data lives. <strong>SQL</strong> databases (MySQL, PostgreSQL) store data in tables. <strong>NoSQL</strong> (MongoDB) stores flexible JSON documents. All databases support <strong>CRUD</strong> — Create, Read, Update, Delete.</p>
+
+    <div class="cb">
+      <span class="cl">Full Stack — all 3 layers communicating</span>
+      <pre><span class="cm">// ① FRONTEND — browser sends a request</span>
+<span class="kw">const</span> res  = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'/api/products'</span>);
+<span class="kw">const</span> data = <span class="kw">await</span> res.<span class="fn">json</span>();
+<span class="fn">renderProducts</span>(data);
+
+<span class="cm">// ② BACKEND — Node.js server receives &amp; responds</span>
+app.<span class="fn">get</span>(<span class="str">'/api/products'</span>, <span class="kw">async</span> (req, res) => {
+  <span class="kw">const</span> rows = <span class="kw">await</span> db.<span class="fn">query</span>(<span class="str">'SELECT * FROM products'</span>);
+  res.<span class="fn">json</span>(rows);
+});
+
+<span class="cm">-- ③ DATABASE — SQL returns matching rows</span>
+<span class="cm">-- SELECT id, name, price FROM products WHERE active = 1;</span></pre>
+    </div>
+
+    <p class="prose"><strong>Reading the code:</strong> The browser calls <code style="color:var(--c1)">fetch()</code> — that is the front-end sending an HTTP request. The Node.js route receives it, runs a SQL query against the database, and sends results back as JSON. The browser renders that JSON on screen. This cycle is the foundation of every full-stack app.</p>
+
+    <!-- LIVE API DEMO -->
+    <div class="api-panel">
+      <div class="api-hdr">
+        <div class="api-hdr-title">Live Demo — Real API Request (Full Stack in Action)</div>
+        <button id="api-btn" onclick="fetchAPI()">▶ Run Request</button>
+      </div>
+      <div class="api-body">
+        <div class="api-ep">
+          <span class="method">GET</span>
+          <span class="api-url">https://jsonplaceholder.typicode.com/users?_limit=3</span>
+          <span id="api-status"></span>
+        </div>
+        <div class="api-out">
+          <pre id="api-data">// Click ▶ Run Request to fetch live data from a real server</pre>
+        </div>
+        <div class="api-steps">
+          <div class="api-step"><div class="api-step-lbl">① Frontend</div><div class="api-step-txt">fetch() sends HTTP GET from your browser</div></div>
+          <div class="api-step"><div class="api-step-lbl">② API / Backend</div><div class="api-step-txt">Remote server receives request and returns JSON</div></div>
+          <div class="api-step"><div class="api-step-lbl">③ Data Layer</div><div class="api-step-txt">JavaScript parses JSON and renders it on screen</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="prose" style="margin-top:1rem;"><strong>What just happened:</strong> Clicking Run triggered <code style="color:var(--c1)">fetch()</code> in your browser (front-end). JSONPlaceholder is a real back-end server that returned JSON data. JavaScript then displayed that JSON in the panel (data layer). Three layers, one click.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- 02 HTML -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="s2">
+  <div class="strip">02 — HTML</div>
+  <div class="si">
+    <div class="eye">02 / Language</div>
+    <h2>HTML — <span>STRUCTURE</span> &amp; SEMANTICS</h2>
+    <p class="prose">HyperText Markup Language gives web content its <strong>structure and meaning</strong>. Semantic elements tell browsers, screen readers and search engines not just what something looks like, but what it <em>is</em>.</p>
+
+    <div class="cb">
+      <span class="cl">Semantic Document Structure</span>
+      <pre><span class="tag">&lt;!DOCTYPE html&gt;</span>          <span class="cm">&lt;!-- tells browser this is HTML5 --&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"en"</span><span class="tag">&gt;</span>           <span class="cm">&lt;!-- lang for screen readers --&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>My Page<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+  <span class="tag">&lt;header&gt;</span>                 <span class="cm">&lt;!-- semantic: site header --&gt;</span>
+    <span class="tag">&lt;nav&gt;</span>Navigation<span class="tag">&lt;/nav&gt;</span>  <span class="cm">&lt;!-- semantic: navigation --&gt;</span>
+  <span class="tag">&lt;/header&gt;</span>
+  <span class="tag">&lt;main&gt;</span>                   <span class="cm">&lt;!-- semantic: main content --&gt;</span>
+    <span class="tag">&lt;article&gt;</span>
+      <span class="tag">&lt;h1&gt;</span>Heading<span class="tag">&lt;/h1&gt;</span>
+      <span class="tag">&lt;p&gt;</span>Paragraph text.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/article&gt;</span>
+  <span class="tag">&lt;/main&gt;</span>
+  <span class="tag">&lt;footer&gt;</span>Footer<span class="tag">&lt;/footer&gt;</span>   <span class="cm">&lt;!-- semantic: page footer --&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre>
+    </div>
+
+    <div class="cb">
+      <span class="cl">Accessible Form</span>
+      <pre><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"/submit"</span> <span class="attr">method</span>=<span class="val">"POST"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"name"</span><span class="tag">&gt;</span>Name<span class="tag">&lt;/label&gt;</span>    <span class="cm">&lt;!-- for= links label to input id= --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">id</span>=<span class="val">"name"</span> <span class="attr">required</span><span class="tag">&gt;</span>  <span class="cm">&lt;!-- required = can't submit empty --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">id</span>=<span class="val">"email"</span><span class="tag">&gt;</span>         <span class="cm">&lt;!-- validates @ symbol automatically --&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"tel"</span>   <span class="attr">id</span>=<span class="val">"phone"</span><span class="tag">&gt;</span>         <span class="cm">&lt;!-- opens number keyboard on mobile --&gt;</span>
+  <span class="tag">&lt;select</span> <span class="attr">id</span>=<span class="val">"role"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;option&gt;</span>Frontend<span class="tag">&lt;/option&gt;</span>
+    <span class="tag">&lt;option&gt;</span>Backend<span class="tag">&lt;/option&gt;</span>
+  <span class="tag">&lt;/select&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Save<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></pre>
+    </div>
+
+    <!-- LIVE FORM DEMO -->
+    <div class="demo">
+      <div class="demo-lbl">Live Form Demo — Fill in and Submit</div>
+      <div class="f-grp"><label class="f-lbl" for="f-name">Full Name <span class="req">*</span></label><input class="f-inp" type="text" id="f-name" placeholder="e.g. Alisha Chaudhary"></div>
+      <div class="f-grp"><label class="f-lbl" for="f-email">Email <span class="req">*</span></label><input class="f-inp" type="email" id="f-email" placeholder="you@example.com"></div>
+      <div class="f-grp"><label class="f-lbl" for="f-phone">Phone</label><input class="f-inp" type="tel" id="f-phone" placeholder="+977 9800000000"></div>
+      <div class="f-grp"><label class="f-lbl" for="f-role">Role</label>
+        <select class="f-sel" id="f-role">
+          <option value="Frontend">Frontend Developer</option>
+          <option value="Backend">Backend Developer</option>
+          <option value="Full Stack">Full Stack Developer</option>
+        </select>
+      </div>
+      <div class="f-grp"><label class="f-lbl" for="f-level">Experience</label>
+        <select class="f-sel" id="f-level">
+          <option value="Junior">Junior (0–2 years)</option>
+          <option value="Mid">Mid-level (2–5 years)</option>
+          <option value="Senior">Senior (5+ years)</option>
+        </select>
+      </div>
+      <button class="f-btn" onclick="saveEntry()">SUBMIT →</button>
+      <div id="form-flash">✓ Entry saved successfully!</div>
+    </div>
+
+    <div id="rec-wrap">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem;">
+        <span style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);">Submitted Entries <span id="rec-cnt" style="background:var(--c2);color:#fff;padding:.1em .4em;font-size:.58rem;font-weight:700;">0</span></span>
+        <button class="clr-btn" onclick="clearEntries()">✕ Clear All</button>
+      </div>
+      <table id="rec-table">
+        <thead><tr>
+          <th>#</th><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th>Level</th>
+        </tr></thead>
+        <tbody id="rec-body"></tbody>
+      </table>
+      <p style="font-size:.6rem;color:var(--muted);margin-top:.4rem;">💾 Saved to localStorage — survives page refresh.</p>
+    </div>
+
+    <p class="prose" style="margin-top:1.2rem;"><strong>How the form works:</strong> Each <code style="color:var(--c2)">&lt;label for=""&gt;</code> matches an input's <code style="color:var(--c2)">id=""</code> — clicking the label focuses the input (accessibility requirement). <code style="color:var(--c2)">type="email"</code> validates the @ symbol automatically. <code style="color:var(--c2)">required</code> blocks submission if the field is empty. JavaScript then saves each submission to <code style="color:var(--c2)">localStorage</code> so the table persists after a page refresh.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- 03 CSS -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="s3">
+  <div class="strip">03 — CSS</div>
+  <div class="si">
+    <div class="eye">03 / Styling</div>
+    <h2>CSS — <span>DESIGN</span> &amp; LAYOUT</h2>
+    <p class="prose">Cascading Style Sheets control every visual aspect of HTML. Selectors target elements, properties define appearance, and the cascade determines which rule wins. Modern CSS includes Flexbox, Grid, animations, transitions, and media queries.</p>
+
+    <div class="css-grid">
+      <!-- Box Model -->
+      <div class="css-tile">
+        <div class="tile-lbl">Box Model — hover to scale</div>
+        <div class="bm"><div class="bm-in">content</div></div>
+        <p style="font-size:.6rem;color:var(--muted);line-height:1.7;margin:.6rem 0 .4rem;font-family:'Manrope',sans-serif;">Every element is a box: <strong>content → padding → border → margin</strong>. Hover above to see scale.</p>
+        <div class="cb"><pre><span class="attr">div</span> {
+  <span class="kw">padding</span>: <span class="num">10px</span>;
+  <span class="kw">border</span>:  <span class="num">4px</span> solid purple;
+  <span class="kw">margin</span>:  <span class="num">10px</span>;
+}</pre></div>
+      </div>
+      <!-- Flexbox -->
+      <div class="css-tile">
+        <div class="tile-lbl">Flexbox — hover boxes to grow</div>
+        <div class="flex-row"><div class="fb"></div><div class="fb"></div><div class="fb"></div><div class="fb"></div><div class="fb"></div></div>
+        <p style="font-size:.6rem;color:var(--muted);line-height:1.7;margin:.6rem 0 .4rem;font-family:'Manrope',sans-serif;"><strong>display:flex</strong> lines children in a row. <strong>flex-grow</strong> expands an item to fill space.</p>
+        <div class="cb"><pre><span class="attr">.row</span> { <span class="kw">display</span>: flex; }
+<span class="attr">.box:hover</span> {
+  <span class="kw">flex-grow</span>: <span class="num">3</span>;
+}</pre></div>
+      </div>
+      <!-- Grid -->
+      <div class="css-tile">
+        <div class="tile-lbl">CSS Grid — hover cells</div>
+        <div class="gd"><div class="gc s2"></div><div class="gc"></div><div class="gc"></div><div class="gc s3"></div><div class="gc s2"></div><div class="gc"></div><div class="gc"></div><div class="gc"></div></div>
+        <p style="font-size:.6rem;color:var(--muted);line-height:1.7;margin:.6rem 0 .4rem;font-family:'Manrope',sans-serif;"><strong>display:grid</strong> creates rows and columns. <strong>grid-column: span 2</strong> makes a cell span 2 columns.</p>
+        <div class="cb"><pre><span class="attr">.grid</span> {
+  <span class="kw">display</span>: grid;
+  <span class="kw">grid-template-columns</span>:
+    repeat(<span class="num">4</span>,<span class="num">1fr</span>);
+}</pre></div>
+      </div>
+      <!-- Animations -->
+      <div class="css-tile">
+        <div class="tile-lbl">CSS Animations — 3 live demos</div>
+        <div class="anim-row">
+          <div style="text-align:center;"><div class="spin-ring"></div><div style="font-size:.48rem;color:var(--muted);margin-top:.3rem;">spin</div></div>
+          <div style="text-align:center;"><div class="bounce-ball"></div><div style="font-size:.48rem;color:var(--muted);margin-top:.3rem;">bounce</div></div>
+          <div style="text-align:center;"><div class="pulse-ring"></div><div style="font-size:.48rem;color:var(--muted);margin-top:.3rem;">pulse</div></div>
+        </div>
+        <p style="font-size:.6rem;color:var(--muted);line-height:1.7;margin:.6rem 0 .4rem;font-family:'Manrope',sans-serif;"><strong>@keyframes</strong> defines the steps. The <strong>animation</strong> property sets name, duration and repeat.</p>
+        <div class="cb"><pre><span class="attr">@keyframes</span> spin {
+  <span class="kw">to</span>{ transform:<span class="fn">rotate</span>(<span class="num">360deg</span>); }
+}
+<span class="attr">@keyframes</span> bounce {
+  <span class="kw">to</span>{ transform:<span class="fn">translateY</span>(<span class="num">-20px</span>); }
+}</pre></div>
+      </div>
+      <!-- Transitions -->
+      <div class="css-tile">
+        <div class="tile-lbl">Transitions — hover the bar</div>
+        <div class="trans-box">hover me</div>
+        <p style="font-size:.6rem;color:var(--muted);line-height:1.7;margin:.6rem 0 .4rem;font-family:'Manrope',sans-serif;"><strong>transition</strong> smoothly animates a property between two states instead of snapping instantly.</p>
+        <div class="cb"><pre><span class="attr">.box</span> {
+  <span class="kw">background</span>: #f0f0f0;
+  <span class="kw">transition</span>: background <span class="num">.4s</span>,
+              transform <span class="num">.3s</span>;
+}
+<span class="attr">.box:hover</span>{ <span class="kw">background</span>: purple; }</pre></div>
+      </div>
+      <!-- Pseudo-classes -->
+      <div class="css-tile">
+        <div class="tile-lbl">Pseudo-classes — hover items</div>
+        <ul class="ps-list">
+          <li>:hover — mouse over state</li>
+          <li>:nth-child — patterned rows</li>
+          <li>:focus — keyboard navigation</li>
+          <li>:first-child — first only</li>
+          <li>:not() — exclusion selector</li>
+        </ul>
+        <p style="font-size:.6rem;color:var(--muted);line-height:1.7;margin:.6rem 0 .4rem;font-family:'Manrope',sans-serif;">Pseudo-classes select elements by <strong>state or position</strong>. Hover the list to see both :hover and :nth-child in action.</p>
+        <div class="cb"><pre><span class="attr">li:hover</span> { <span class="kw">border-left</span>: <span class="num">3px</span> solid purple; }
+<span class="attr">li:nth-child(even)</span> { <span class="kw">background</span>: #faf5ff; }</pre></div>
+      </div>
+    </div>
+
+    <!-- Flexbox Playground -->
+    <div class="fpg">
+      <div class="fpg-hdr">⚡ Interactive Flexbox Playground — change the dropdowns and watch the boxes update live</div>
+      <div class="fpg-body">
+        <p style="font-size:.7rem;color:var(--muted);margin-bottom:.9rem;line-height:1.8;font-family:'Manrope',sans-serif;">The <strong>parent</strong> gets <code style="color:var(--c3)">display:flex</code> and all children become flex items. Change any property below and see the result instantly.</p>
+        <div class="fpg-controls">
+          <div class="fpg-grp"><span class="fpg-lbl">flex-direction</span>
+            <select class="fpg-sel" id="fpg-dir" onchange="updateFlex()">
+              <option value="row">row (default)</option>
+              <option value="row-reverse">row-reverse</option>
+              <option value="column">column</option>
+              <option value="column-reverse">column-reverse</option>
+            </select>
+          </div>
+          <div class="fpg-grp"><span class="fpg-lbl">justify-content</span>
+            <select class="fpg-sel" id="fpg-jc" onchange="updateFlex()">
+              <option value="flex-start">flex-start</option>
+              <option value="center">center</option>
+              <option value="flex-end">flex-end</option>
+              <option value="space-between">space-between</option>
+              <option value="space-around">space-around</option>
+              <option value="space-evenly">space-evenly</option>
+            </select>
+          </div>
+          <div class="fpg-grp"><span class="fpg-lbl">align-items</span>
+            <select class="fpg-sel" id="fpg-ai" onchange="updateFlex()">
+              <option value="stretch">stretch</option>
+              <option value="flex-start">flex-start</option>
+              <option value="center">center</option>
+              <option value="flex-end">flex-end</option>
+            </select>
+          </div>
+          <div class="fpg-grp"><span class="fpg-lbl">gap</span>
+            <select class="fpg-sel" id="fpg-gap" onchange="updateFlex()">
+              <option value="4px">4px</option>
+              <option value="8px" selected>8px</option>
+              <option value="16px">16px</option>
+              <option value="24px">24px</option>
+            </select>
+          </div>
+        </div>
+        <div class="fpg-stage" id="fpg-stage">
+          <div class="fpg-item">1</div><div class="fpg-item">2</div><div class="fpg-item">3</div><div class="fpg-item">4</div>
+        </div>
+        <div class="fpg-code" id="fpg-code">.container { display: flex; flex-direction: row; justify-content: flex-start; align-items: stretch; gap: 8px; }</div>
+      </div>
+    </div>
+
+    <!-- Media Queries -->
+    <div class="cb">
+      <span class="cl">Responsive Media Queries</span>
+      <pre><span class="cm">/* Mobile first — single column by default */</span>
+<span class="attr">.layout</span> { <span class="kw">grid-template-columns</span>: <span class="num">1fr</span>; }
+
+<span class="cm">/* Tablet — two columns from 768px */</span>
+<span class="kw">@media</span> (min-width: <span class="num">768px</span>) {
+  <span class="attr">.layout</span> { <span class="kw">grid-template-columns</span>: <span class="num">1fr 1fr</span>; }
+}
+
+<span class="cm">/* Desktop — three columns from 1024px */</span>
+<span class="kw">@media</span> (min-width: <span class="num">1024px</span>) {
+  <span class="attr">.layout</span> { <span class="kw">grid-template-columns</span>: repeat(<span class="num">3</span>, <span class="num">1fr</span>); }
+}</pre>
+    </div>
+    <p class="prose"><strong>How media queries work:</strong> Rules inside <code style="color:var(--c3)">@media (min-width: 768px)</code> only apply when the screen is at least that wide. Mobile-first means writing the simplest layout first, then adding more complex layouts as screen size grows. Try resizing your browser to see this page respond.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- 04 BOOTSTRAP -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="s4">
+  <div class="strip">04 — Bootstrap Framework</div>
+  <div class="si">
+    <div class="eye">04 / Framework</div>
+    <h2>BOOTSTRAP — <span>RAPID</span> COMPONENT UI</h2>
+    <p class="prose">Bootstrap is the world's most popular CSS framework. It provides a <strong>12-column responsive grid</strong>, ready-made components (modals, accordions, cards) and utility classes. You apply class names in HTML — Bootstrap handles the styling and behaviour. Bootstrap 5 requires no jQuery.</p>
+
+    <div class="cb">
+      <span class="cl">How to add Bootstrap — CDN</span>
+      <pre><span class="cm">&lt;!-- CSS in &lt;head&gt; --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"</span><span class="tag">&gt;</span>
+
+<span class="cm">&lt;!-- JS before &lt;/body&gt; — powers modals, dropdowns, accordions --&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="val">"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></pre>
+    </div>
+
+    <!-- Bootstrap tabs demo -->
+    <div style="border:2px solid var(--c4);margin:1.5rem 0;">
+      <div class="bs-tabs">
+        <button class="bs-tab active" onclick="bsTab('grid')"   id="bt-grid">⊞ Grid System</button>
+        <button class="bs-tab"        onclick="bsTab('cards')"  id="bt-cards">🃏 Cards</button>
+        <button class="bs-tab"        onclick="bsTab('comp')"   id="bt-comp">🔧 Components</button>
+        <button class="bs-tab"        onclick="bsTab('util')"   id="bt-util">⚡ Utilities</button>
+      </div>
+
+      <!-- GRID -->
+      <div class="bs-panel show" id="bp-grid">
+        <p style="font-size:.66rem;color:#555;margin-bottom:1rem;font-family:'Manrope',sans-serif;line-height:1.8;"><strong>The 12-column grid:</strong> Every <code style="color:var(--c4)">row</code> is divided into 12 columns. Use <code style="color:var(--c4)">col-4</code> for one-third, <code style="color:var(--c4)">col-6</code> for half, <code style="color:var(--c4)">col-md-8</code> for 8 columns on medium+ screens (stacks on mobile).</p>
+        <div class="row g-2 mb-2"><div class="col-12"><div class="bs-col-box" style="background:#ea580c;">col-12 — full width</div></div></div>
+        <div class="row g-2 mb-2">
+          <div class="col-6"><div class="bs-col-box" style="background:#c2410c;">col-6</div></div>
+          <div class="col-6"><div class="bs-col-box" style="background:#c2410c;">col-6</div></div>
+        </div>
+        <div class="row g-2 mb-2">
+          <div class="col-4"><div class="bs-col-box" style="background:#9a3412;">col-4</div></div>
+          <div class="col-4"><div class="bs-col-box" style="background:#9a3412;">col-4</div></div>
+          <div class="col-4"><div class="bs-col-box" style="background:#9a3412;">col-4</div></div>
+        </div>
+        <div class="row g-2 mb-3">
+          <div class="col-md-8"><div class="bs-col-box" style="background:#7c2d12;">col-md-8 (stacks on mobile)</div></div>
+          <div class="col-md-4"><div class="bs-col-box" style="background:#7c2d12;">col-md-4</div></div>
+        </div>
+        <div class="cb"><pre><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"row"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"col-4"</span><span class="tag">&gt;</span>One third<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"col-4"</span><span class="tag">&gt;</span>One third<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"col-4"</span><span class="tag">&gt;</span>One third<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre></div>
+      </div>
+
+      <!-- CARDS -->
+      <div class="bs-panel" id="bp-cards" style="background:#0f172a;">
+        <p style="font-size:.66rem;color:#94a3b8;margin-bottom:1rem;font-family:'Manrope',sans-serif;line-height:1.8;"><strong style="color:#f1f5f9;">Bootstrap Cards</strong> are flexible containers. Pair with the grid for automatic portfolio layouts.</p>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div style="background:#1e293b;border:1px solid #334155;border-radius:4px;overflow:hidden;">
+              <div style="height:5px;background:linear-gradient(90deg,var(--c1),var(--c3));"></div>
+              <div style="padding:1rem;">
+                <div style="font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c1);margin-bottom:.3rem;">Full Stack</div>
+                <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:.88rem;color:#f1f5f9;margin-bottom:.4rem;">ePortfolio App</div>
+                <div style="font-size:.66rem;color:#94a3b8;line-height:1.7;margin-bottom:.8rem;">Built with HTML, CSS, Bootstrap and JavaScript.</div>
+                <div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.8rem;">
+                  <span style="background:#1d4ed8;color:#fff;font-size:.52rem;padding:.1em .45em;">HTML</span>
+                  <span style="background:#7e22ce;color:#fff;font-size:.52rem;padding:.1em .45em;">CSS</span>
+                  <span style="background:#ea580c;color:#fff;font-size:.52rem;padding:.1em .45em;">Bootstrap</span>
+                </div>
+                <button class="btn btn-sm" style="background:var(--c1);color:#fff;font-size:.62rem;">Live Demo</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="background:#1e293b;border:1px solid #334155;border-radius:4px;overflow:hidden;">
+              <div style="height:5px;background:linear-gradient(90deg,var(--c2),var(--c1));"></div>
+              <div style="padding:1rem;">
+                <div style="font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c2);margin-bottom:.3rem;">Backend</div>
+                <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:.88rem;color:#f1f5f9;margin-bottom:.4rem;">REST API Server</div>
+                <div style="font-size:.66rem;color:#94a3b8;line-height:1.7;margin-bottom:.8rem;">Node.js Express with JWT auth and MySQL.</div>
+                <div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.8rem;">
+                  <span style="background:#15803d;color:#fff;font-size:.52rem;padding:.1em .45em;">Node.js</span>
+                  <span style="background:#1d4ed8;color:#fff;font-size:.52rem;padding:.1em .45em;">MySQL</span>
+                </div>
+                <button class="btn btn-sm" style="background:var(--c2);color:#fff;font-size:.62rem;">Live Demo</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="background:#1e293b;border:1px solid #334155;border-radius:4px;overflow:hidden;">
+              <div style="height:5px;background:linear-gradient(90deg,var(--c5),var(--c4));"></div>
+              <div style="padding:1rem;">
+                <div style="font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c5);margin-bottom:.3rem;">Frontend</div>
+                <div style="font-family:'Manrope',sans-serif;font-weight:800;font-size:.88rem;color:#f1f5f9;margin-bottom:.4rem;">Dashboard UI</div>
+                <div style="font-size:.66rem;color:#94a3b8;line-height:1.7;margin-bottom:.8rem;">React dashboard with charts and dark mode.</div>
+                <div style="display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.8rem;">
+                  <span style="background:#be185d;color:#fff;font-size:.52rem;padding:.1em .45em;">React</span>
+                  <span style="background:#ea580c;color:#fff;font-size:.52rem;padding:.1em .45em;">Bootstrap</span>
+                </div>
+                <button class="btn btn-sm" style="background:var(--c5);color:#fff;font-size:.62rem;">Live Demo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cb" style="margin-top:1rem;"><pre><span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"card"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"card-header"</span><span class="tag">&gt;</span>Title<span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"card-body"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="val">"card-text"</span><span class="tag">&gt;</span>Description<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;a</span> <span class="attr">class</span>=<span class="val">"btn btn-primary"</span><span class="tag">&gt;</span>View<span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre></div>
+      </div>
+
+      <!-- COMPONENTS -->
+      <div class="bs-panel" id="bp-comp">
+        <p style="font-size:.66rem;color:#555;margin-bottom:1rem;font-family:'Manrope',sans-serif;line-height:1.8;"><strong>Bootstrap components</strong> are activated using <code style="color:var(--c4)">data-bs-*</code> attributes — no custom JavaScript needed.</p>
+
+        <p style="font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c4);margin-bottom:.4rem;font-weight:700;">Accordion</p>
+        <div class="accordion mb-3" id="bsAcc" style="border:1px solid #e5e7eb;border-radius:0;">
+          <div class="accordion-item" style="border-radius:0;border:none;border-bottom:1px solid #e5e7eb;">
+            <h2 class="accordion-header">
+              <button class="accordion-button" style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;background:#fff;color:var(--c4);box-shadow:none;" type="button" data-bs-toggle="collapse" data-bs-target="#ac1">What is a Bootstrap component?</button>
+            </h2>
+            <div id="ac1" class="accordion-collapse collapse show" data-bs-parent="#bsAcc">
+              <div class="accordion-body" style="font-size:.7rem;line-height:1.8;color:#555;font-family:'Manrope',sans-serif;">A ready-made interactive UI element. Add <code style="color:var(--c4)">data-bs-toggle</code> to any element and Bootstrap's JS handles the behaviour automatically.</div>
+            </div>
+          </div>
+          <div class="accordion-item" style="border-radius:0;border:none;">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;background:#fff;color:#374151;box-shadow:none;" type="button" data-bs-toggle="collapse" data-bs-target="#ac2">Why use Bootstrap instead of plain CSS?</button>
+            </h2>
+            <div id="ac2" class="accordion-collapse collapse" data-bs-parent="#bsAcc">
+              <div class="accordion-body" style="font-size:.7rem;line-height:1.8;color:#555;font-family:'Manrope',sans-serif;">Bootstrap saves hours — a responsive grid, modal and navbar from one CDN link. It also ensures cross-browser consistency across Chrome, Firefox, Safari and Edge.</div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c4);margin-bottom:.4rem;font-weight:700;">Modal</p>
+        <div style="background:#fff3e0;border:2px dashed var(--c4);padding:.9rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;margin-bottom:.8rem;">
+          <span style="font-size:.68rem;color:#92400e;font-family:'Manrope',sans-serif;"><strong>data-bs-toggle="modal"</strong> opens it. <strong>data-bs-dismiss="modal"</strong> closes it. Backdrop + Esc key are automatic.</span>
+          <button type="button" class="btn btn-sm text-white" style="background:var(--c4);font-family:'IBM Plex Mono',monospace;" data-bs-toggle="modal" data-bs-target="#bsModal">Open Modal →</button>
+        </div>
+        <div class="cb"><pre><span class="tag">&lt;button</span> <span class="attr">data-bs-toggle</span>=<span class="val">"modal"</span> <span class="attr">data-bs-target</span>=<span class="val">"#myModal"</span><span class="tag">&gt;</span>Open<span class="tag">&lt;/button&gt;</span>
+
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"modal fade"</span> <span class="attr">id</span>=<span class="val">"myModal"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"modal-dialog"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"modal-content"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"modal-header"</span><span class="tag">&gt;</span>Title<span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"modal-body"</span><span class="tag">&gt;</span>Content<span class="tag">&lt;/div&gt;</span>
+      <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"modal-footer"</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;button</span> <span class="attr">data-bs-dismiss</span>=<span class="val">"modal"</span><span class="tag">&gt;</span>Close<span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span></pre></div>
+      </div>
+
+      <!-- UTILITIES -->
+      <div class="bs-panel" id="bp-util">
+        <p style="font-size:.66rem;color:#555;margin-bottom:1rem;font-family:'Manrope',sans-serif;line-height:1.8;"><strong>Utility classes</strong> are single-purpose — they do one thing. Stack them in HTML instead of writing custom CSS.</p>
+        <p style="font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c4);margin-bottom:.5rem;font-weight:700;">Spacing — p (padding) and m (margin)</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;">
+          <span class="p-1" style="background:#fed7aa;font-size:.6rem;font-family:'IBM Plex Mono',monospace;">p-1 (4px)</span>
+          <span class="p-2" style="background:#fdba74;font-size:.6rem;font-family:'IBM Plex Mono',monospace;">p-2 (8px)</span>
+          <span class="p-3" style="background:#fb923c;color:#fff;font-size:.6rem;font-family:'IBM Plex Mono',monospace;">p-3 (16px)</span>
+          <span class="p-4" style="background:#f97316;color:#fff;font-size:.6rem;font-family:'IBM Plex Mono',monospace;">p-4 (24px)</span>
+          <span class="p-5" style="background:#ea580c;color:#fff;font-size:.6rem;font-family:'IBM Plex Mono',monospace;">p-5 (48px)</span>
+        </div>
+        <p style="font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c4);margin-bottom:.5rem;font-weight:700;">Text utilities</p>
+        <p class="text-primary fw-bold mb-1" style="font-size:.74rem;font-family:'Manrope',sans-serif;">text-primary fw-bold</p>
+        <p class="text-success fst-italic mb-1" style="font-size:.74rem;font-family:'Manrope',sans-serif;">text-success fst-italic</p>
+        <p class="text-danger text-decoration-underline mb-1" style="font-size:.74rem;font-family:'Manrope',sans-serif;">text-danger text-decoration-underline</p>
+        <p class="text-muted mb-3" style="font-size:.74rem;font-family:'Manrope',sans-serif;">text-muted</p>
+        <div class="cb"><pre><span class="cm">&lt;!-- Utility classes replace custom CSS blocks --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"d-flex gap-3 align-items-center mt-4 p-3"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="val">"text-primary fw-bold mb-0"</span><span class="tag">&gt;</span>Hello<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+<span class="cm">/* replaces: display:flex; gap:12px; align-items:center;
+   margin-top:24px; padding:16px; */</span></pre></div>
+      </div>
+    </div>
+
+    <p class="prose">Bootstrap handles the visual layer so developers focus on logic. <code style="color:var(--c4)">col-md-6</code> replaces 10+ lines of custom CSS. The accordion, modal and grid above are all driven by Bootstrap — no extra JavaScript written by us.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- 05 JAVASCRIPT -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="s5">
+  <div class="strip">05 — JavaScript</div>
+  <div class="si">
+    <div class="eye">05 / Programming Language</div>
+    <h2>JAVASCRIPT — <span>BEHAVIOUR</span> &amp; INTERACTIVITY</h2>
+    <p class="prose">JavaScript is the programming language of the web. It runs in the browser, manipulates the DOM, responds to events, processes data, and communicates with APIs. Every interactive element on this page is powered by JavaScript.</p>
+
+    <div class="cb">
+      <span class="cl">Core JavaScript Concepts</span>
+      <pre><span class="cm">// const = never reassigned   let = can change</span>
+<span class="kw">const</span> name  = <span class="str">"Alisha"</span>;
+<span class="kw">let</span>   score = <span class="num">0</span>;
+
+<span class="cm">// Functions — reusable blocks of logic</span>
+<span class="kw">function</span> <span class="fn">greet</span>(user) {
+  <span class="kw">return</span> <span class="str">`Hello, ${user}!`</span>;   <span class="cm">// template literal</span>
+}
+
+<span class="cm">// DOM — find an HTML element and listen for a click</span>
+document.<span class="fn">getElementById</span>(<span class="str">'btn'</span>)
+  .<span class="fn">addEventListener</span>(<span class="str">'click'</span>, () => {
+    document.<span class="fn">getElementById</span>(<span class="str">'out'</span>).textContent = <span class="fn">greet</span>(name);
+  });
+
+<span class="cm">// Arrays &amp; loops</span>
+[<span class="str">'HTML'</span>, <span class="str">'CSS'</span>, <span class="str">'JS'</span>].<span class="fn">forEach</span>(s => console.<span class="fn">log</span>(s));</pre>
+    </div>
+    <p class="prose"><strong>How JS connects to HTML:</strong> <code style="color:var(--c5)">getElementById()</code> finds an element. <code style="color:var(--c5)">addEventListener('click', fn)</code> runs a function on click. <code style="color:var(--c5)">textContent</code> changes visible text. These three form the foundation of all DOM manipulation.</p>
+
+    <div class="js-grid">
+      <!-- TO-DO LIST -->
+      <div class="js-tile">
+        <h4>To-Do List — Arrays &amp; DOM</h4>
+        <div class="todo-row">
+          <input class="todo-inp" id="todo-in" type="text" placeholder="Add a task..." onkeydown="if(event.key==='Enter')addTodo()">
+          <button class="todo-add" onclick="addTodo()">ADD</button>
+        </div>
+        <ul id="todo-list"></ul>
+        <div class="todo-cnt" id="todo-cnt"></div>
+        <p style="font-size:.58rem;color:var(--muted);line-height:1.7;margin:.5rem 0 .3rem;font-family:'Manrope',sans-serif;">Tasks live in a JavaScript <strong>array</strong>. Each add/delete updates the array, then <code style="color:var(--c5)">innerHTML</code> re-renders the list.</p>
+        <div class="cb"><pre><span class="kw">const</span> todos = [];
+<span class="kw">function</span> <span class="fn">addTodo</span>() {
+  todos.<span class="fn">push</span>({ text, done: <span class="kw">false</span> });
+  <span class="fn">renderTodos</span>();
+}
+<span class="kw">function</span> <span class="fn">delTodo</span>(i) {
+  todos.<span class="fn">splice</span>(i, <span class="num">1</span>);
+  <span class="fn">renderTodos</span>();
+}</pre></div>
+      </div>
+
+      <!-- PASSWORD GENERATOR -->
+      <div class="js-tile">
+        <h4>Password Generator — Logic &amp; Randomness</h4>
+        <div class="pw-out" id="pw-display">Click Generate →</div>
+        <div class="pw-ctrl">
+          <div class="pw-row"><span>Length: <strong id="pw-lbl" style="color:var(--c5)">12</strong></span><input type="range" id="pw-len" min="6" max="24" value="12" oninput="document.getElementById('pw-lbl').textContent=this.value"></div>
+          <div class="pw-row"><span>Uppercase</span><input type="checkbox" id="pw-up" checked></div>
+          <div class="pw-row"><span>Numbers</span><input type="checkbox" id="pw-num" checked></div>
+          <div class="pw-row"><span>Symbols</span><input type="checkbox" id="pw-sym"></div>
+        </div>
+        <button class="pw-btn" onclick="generatePassword()">[ Generate Password ]</button>
+        <p style="font-size:.58rem;color:var(--muted);line-height:1.7;margin:.5rem 0 .3rem;font-family:'Manrope',sans-serif;"><code style="color:var(--c5)">Math.random()</code> picks a random index from the character set. Checkboxes extend the pool.</p>
+        <div class="cb"><pre><span class="kw">let</span> charset = <span class="str">"abcdefghijklmnopqrstuvwxyz"</span>;
+<span class="kw">if</span> (upper)   charset += <span class="str">"ABC..."</span>;
+<span class="kw">if</span> (numbers) charset += <span class="str">"0123456789"</span>;
+<span class="kw">for</span> (<span class="kw">let</span> i = <span class="num">0</span>; i &lt; length; i++) {
+  pw += charset[Math.<span class="fn">floor</span>(Math.<span class="fn">random</span>() * charset.length)];
+}</pre></div>
+      </div>
+
+      <!-- CALCULATOR -->
+      <div class="js-tile">
+        <h4>Calculator — State &amp; Arithmetic</h4>
+        <div class="calc-wrap">
+          <div class="calc-screen">
+            <div class="calc-expr" id="calc-expr"></div>
+            <div class="calc-val" id="calc-val">0</div>
+          </div>
+          <div class="calc-btns">
+            <button class="cbb cbcl" onclick="calcClear()">AC</button>
+            <button class="cbb cbpm" onclick="calcSign()">+/−</button>
+            <button class="cbb cbcl" onclick="calcPct()">%</button>
+            <button class="cbb cbo"  onclick="calcOp('÷')">÷</button>
+            <button class="cbb cbn"  onclick="calcNum('7')">7</button>
+            <button class="cbb cbn"  onclick="calcNum('8')">8</button>
+            <button class="cbb cbn"  onclick="calcNum('9')">9</button>
+            <button class="cbb cbo"  onclick="calcOp('×')">×</button>
+            <button class="cbb cbn"  onclick="calcNum('4')">4</button>
+            <button class="cbb cbn"  onclick="calcNum('5')">5</button>
+            <button class="cbb cbn"  onclick="calcNum('6')">6</button>
+            <button class="cbb cbo"  onclick="calcOp('−')">−</button>
+            <button class="cbb cbn"  onclick="calcNum('1')">1</button>
+            <button class="cbb cbn"  onclick="calcNum('2')">2</button>
+            <button class="cbb cbn"  onclick="calcNum('3')">3</button>
+            <button class="cbb cbo"  onclick="calcOp('+')">+</button>
+            <button class="cbb cbn"  onclick="calcNum('0')" style="grid-column:span 2;">0</button>
+            <button class="cbb cbdt" onclick="calcDot()">.</button>
+            <button class="cbb cbeq" onclick="calcEq()">=</button>
+          </div>
+        </div>
+        <p style="font-size:.58rem;color:var(--muted);line-height:1.7;margin:.3rem 0;font-family:'Manrope',sans-serif;">Three <strong>state variables</strong> track the first number, operator, and input mode. A <code style="color:var(--c5)">switch</code> computes the result.</p>
+        <div class="cb"><pre><span class="kw">let</span> calcA = <span class="kw">null</span>, calcOp = <span class="kw">null</span>, calcNew = <span class="kw">true</span>;
+<span class="kw">function</span> <span class="fn">compute</span>(a, b, op) {
+  <span class="kw">switch</span>(op) {
+    <span class="kw">case</span> <span class="str">'+'</span>: <span class="kw">return</span> a + b;
+    <span class="kw">case</span> <span class="str">'−'</span>: <span class="kw">return</span> a - b;
+    <span class="kw">case</span> <span class="str">'×'</span>: <span class="kw">return</span> a * b;
+    <span class="kw">case</span> <span class="str">'÷'</span>: <span class="kw">return</span> b !== <span class="num">0</span> ? a / b : <span class="num">0</span>;
+  }
+}</pre></div>
+      </div>
+
+      <!-- QUIZ -->
+      <div class="js-tile">
+        <h4>Quiz — Objects, Arrays &amp; Logic</h4>
+        <div id="qz-q" style="font-size:.76rem;font-weight:600;margin-bottom:.65rem;line-height:1.6;"></div>
+        <div id="qz-opts"></div>
+        <div id="qz-res"></div>
+        <button id="qz-next" onclick="nextQ()">Next →</button>
+        <p style="font-size:.58rem;color:var(--muted);line-height:1.7;margin:.5rem 0 .3rem;font-family:'Manrope',sans-serif;">Data is an <strong>array of objects</strong>. <code style="color:var(--c5)">createElement()</code> builds buttons dynamically; <code style="color:var(--c5)">classList.add()</code> applies correct/wrong styles.</p>
+        <div class="cb"><pre><span class="kw">const</span> qData = [{
+  q:    <span class="str">"What does HTML stand for?"</span>,
+  opts: [<span class="str">"HyperText..."</span>, <span class="str">"HighText..."</span>],
+  ans:  <span class="num">0</span>
+}];
+<span class="kw">function</span> <span class="fn">checkQ</span>(i) {
+  btns[i].classList.<span class="fn">add</span>(
+    i === q.ans ? <span class="str">'correct'</span> : <span class="str">'wrong'</span>
+  );
+}</pre></div>
+      </div>
+    </div>
+
+    <p class="prose" style="margin-top:1.5rem;"><strong>What each demo teaches:</strong> The <strong>To-Do List</strong> shows arrays + DOM re-rendering. The <strong>Password Generator</strong> shows <code style="color:var(--c5)">Math.random()</code>, string building, and conditional logic. The <strong>Calculator</strong> shows multi-step state management with a switch statement. The <strong>Quiz</strong> shows arrays of objects and dynamic element creation. All four are core JavaScript patterns used in real applications.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="ft-name"><span class="d1">DEV</span><span class="d2">.</span><span class="d3">FOLIO</span></div>
+    <div style="font-family:'Manrope',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:.2rem;">Alisha Chaudhary</div>
+    <div class="ft-sub">CET138 — Full Stack Development — Assignment 1</div>
+  </div>
+  <div class="ft-r">
+    <span style="color:var(--c1)">HTML</span> · <span style="color:var(--c2)">CSS</span> · <span style="color:var(--c3)">JavaScript</span> · <span style="color:var(--c4)">Bootstrap 5.3</span>
+  </div>
+</footer>
+
+<!-- BOOTSTRAP MODAL -->
+<div class="modal fade" id="bsModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-white" style="background:var(--c4);">
+        <h5 class="modal-title" style="font-size:.86rem;font-family:'IBM Plex Mono',monospace;">Bootstrap Modal Component</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" style="font-size:.8rem;line-height:1.9;color:#444;font-family:'IBM Plex Mono',monospace;">
+        <p style="margin-bottom:.6rem;">This is a <strong>real Bootstrap 5 modal</strong>. It was opened by <code>data-bs-toggle="modal"</code> and <code>data-bs-target="#bsModal"</code>.</p>
+        <p style="margin-bottom:0;">The fade animation, dark backdrop and <kbd>Esc</kbd> key to close are all handled by Bootstrap — <strong>zero custom JavaScript required</strong>.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-sm text-white" style="background:var(--c4);" data-bs-dismiss="modal">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
